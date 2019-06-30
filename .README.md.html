@@ -663,7 +663,73 @@ function setDocumentScrollTop(ypos)
  <li>la <em>potencia real</em>: es la suma de la potencia de todos los habitantes.</li> 
 </ul> 
 <h2> <a id="test-sobre-el-escenario-b&aacute;sico" class="anchor" href="#test-sobre-el-escenario-b%C3%A1sico" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Test sobre el escenario b&aacute;sico</h2> 
-<p>... pr&oacute;ximamente ...</p> 
+<p>Considerar estas seis personas:</p> 
+<ul> 
+ <li>Julieta, una persona gen&eacute;rica de 42 a&ntilde;os.</li> 
+ <li>Ana, una atleta de 25 a&ntilde;os.</li> 
+ <li>Rosa, una atleta de 45 a&ntilde;os que conoce 8 t&eacute;cnicas.</li> 
+ <li>Perla, una atleta de 28 a&ntilde;os que conoce 4 t&eacute;cnicas, y de masa muscular 6.</li> 
+ <li>M&oacute;nica, una docente de 45 a&ntilde;os que dio 6 cursos.</li> 
+ <li>Luisa, una docente de 35 a&ntilde;os que dio un curso.</li> 
+</ul> 
+<p>Verificar que tienen los valores indicados en la tabla que sigue</p> 
+<table> 
+ <thead> 
+  <tr> 
+   <th>persona</th> 
+   <th>Potencia</th> 
+   <th>Inteligencia</th> 
+   <th>Es destacada</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr> 
+   <td>Julieta</td> 
+   <td>20</td> 
+   <td>8</td> 
+   <td>no</td> 
+  </tr> 
+  <tr> 
+   <td>Ana</td> 
+   <td>28</td> 
+   <td>12</td> 
+   <td>s&iacute;</td> 
+  </tr> 
+  <tr> 
+   <td>Rosa</td> 
+   <td>52</td> 
+   <td>8</td> 
+   <td>s&iacute;</td> 
+  </tr> 
+  <tr> 
+   <td>Perla</td> 
+   <td>44</td> 
+   <td>12</td> 
+   <td>no</td> 
+  </tr> 
+  <tr> 
+   <td>M&oacute;nica</td> 
+   <td>20</td> 
+   <td>20</td> 
+   <td>s&iacute;</td> 
+  </tr> 
+  <tr> 
+   <td>Luisa</td> 
+   <td>20</td> 
+   <td>14</td> 
+   <td>no</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Considerar el planeta Trit&oacute;n, que tiene a estas seis personas como habitantes. Verificar que:</p> 
+<ul> 
+ <li>la delegaci&oacute;n diplom&aacute;tica est&aacute; formada por Ana, Rosa y M&oacute;nica</li> 
+ <li>el valor inicial de defensa es 2</li> 
+ <li>no es un planeta culto</li> 
+ <li>la potencia real es 184</li> 
+</ul> 
+<p>Sugerencia: definir a las personas como un Set (o sea <code>#{...}</code>) y no como un List (o sea, <code>[...]</code>). As&iacute; se va a simplificar el chequeo de la delegaci&oacute;n diplom&aacute;tica. <br /><br /></p> 
+<p>Finalmente, en un test aparte, hacer que Perla entrene 15 d&iacute;as y aprenda una t&eacute;cnica. Despu&eacute;s de eso, la potencia tiene que ser 65, y todav&iacute;a no tiene que ser destacada. <strong>Despu&eacute;s</strong> hacer que aprenda una t&eacute;cnica m&aacute;s. Despu&eacute;s de aprender esta segunda t&eacute;cnica adicional, Perla tiene que ser destacada.</p> 
 <h2> <a id="m&aacute;s-sobre-el-planeta" class="anchor" href="#m%C3%A1s-sobre-el-planeta" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>M&aacute;s sobre el planeta</h2> 
 <p>Agregar, para cada planeta, la longitud total de sus murallas, que est&aacute; medida en kil&oacute;metros. Agregar tambi&eacute;n dos acciones</p> 
 <ul> 

@@ -34,7 +34,34 @@ Se tiene que poder obtener, para cada planeta
 
 ## Test sobre el escenario básico
 
-... próximamente ...
+Considerar estas seis personas:
+- Julieta, una persona genérica de 42 años.
+- Ana, una atleta de 25 años.
+- Rosa, una atleta de 45 años que conoce 8 técnicas.
+- Perla, una atleta de 28 años que conoce 4 técnicas, y de masa muscular 6.
+- Mónica, una docente de 45 años que dio 6 cursos.
+- Luisa, una docente de 35 años que dio un curso.
+
+Verificar que tienen los valores indicados en la tabla que sigue
+
+| persona | Potencia | Inteligencia | Es destacada |
+| --- | --- | --- | --- | 
+| Julieta | 20 | 8 | no |
+| Ana | 28 | 12 | sí |
+| Rosa | 52 | 8 | sí |
+| Perla | 44 | 12 | no |
+| Mónica | 20 | 20 | sí |
+| Luisa | 20 | 14 | no |
+
+Considerar el planeta Tritón, que tiene a estas seis personas como habitantes. Verificar que:
+- la delegación diplomática está formada por Ana, Rosa y Mónica
+- el valor inicial de defensa es 2
+- no es un planeta culto
+- la potencia real es 184  
+
+Sugerencia: definir a las personas como un Set (o sea `#{...}`) y no como un List (o sea, `[...]`). Así se va a simplificar el chequeo de la delegación diplomática. <br/><br/>
+
+Finalmente, en un test aparte, hacer que Perla entrene 15 días y aprenda una técnica. Después de eso, la potencia tiene que ser 65, y todavía no tiene que ser destacada. **Después** hacer que aprenda una técnica más. Después de aprender esta segunda técnica adicional, Perla tiene que ser destacada.
 
 
 ## Más sobre el planeta

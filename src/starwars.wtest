@@ -1,0 +1,57 @@
+import gente.*
+import planeta.*
+
+describe "parte basica de star wars" {
+
+	const julieta = new Persona(edad = 42)
+	const ana = new Atleta(edad = 25)
+	const rosa = new Atleta(edad = 45, tecnicasQueConoce = 8)
+	const perla = new Atleta(edad = 28, tecnicasQueConoce = 4, masaMuscular = 6)
+	const monica = new Docente(cantidadDeCursosQueDio = 6, edad = 45)
+	const luisa = new Docente(cantidadDeCursosQueDio = 1, edad = 35)
+	
+	const triton = new Planeta(habitantes = #{julieta, ana, rosa, perla, monica, luisa})
+	 
+	test "potencia" {
+		assert.equals(20, julieta.potencia())
+		assert.equals(28, ana.potencia())
+		assert.equals(52, rosa.potencia())
+		assert.equals(44, perla.potencia())
+		assert.equals(20, monica.potencia())
+		assert.equals(20, luisa.potencia())
+	}
+
+	test "inteligencia" {
+		assert.equals(8, julieta.inteligencia())
+		assert.equals(12, ana.inteligencia())
+		assert.equals(8, rosa.inteligencia())
+		assert.equals(12, perla.inteligencia())
+		assert.equals(20, monica.inteligencia())
+		assert.equals(14, luisa.inteligencia())
+	}
+	
+	test "destacados" {
+		assert.notThat(julieta.esDestacada())
+		assert.that(ana.esDestacada())
+		assert.that(rosa.esDestacada())
+		assert.notThat(perla.esDestacada())
+		assert.that(monica.esDestacada())
+		assert.notThat(luisa.esDestacada())
+	}
+	
+	test "planeta" {
+		assert.equals(#{ana, rosa, monica}, triton.delegacionDiplomatica())
+		assert.equals(2, triton.valorInicialDeDefensa())
+		assert.notThat(triton.esCulto())
+		assert.equals(184, triton.potenciaReal())
+	}
+
+	test "evolucion de un atleta" {
+		perla.entrenar(15)
+		perla.aprenderTecnica()
+		assert.equals(65, perla.potencia())
+		assert.notThat(perla.esDestacada())
+		perla.aprenderTecnica()
+		assert.that(perla.esDestacada())
+	}
+}
