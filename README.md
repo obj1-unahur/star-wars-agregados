@@ -14,7 +14,7 @@ Además de estas definiciones que sirven para la generalidad de las personas, se
 
 De cada **atleta** se mantienen la masa muscular (que comienza en 4 kilos) y la cantidad de técnicas que conoce (que comienza en 2).  
 La _potencia_ de un atleta es la suma del valor común para todas las personas, con la multiplicación entre masa muscular y cantidad de técnicas que conoce.  
-Un atleta _es destacado_ si cumple la condición común para todas las personas, o bien, conoce más de 4 técnicas.  
+Un atleta _es destacado_ si cumple la condición común para todas las personas, o bien, conoce más de 5 técnicas.  
 Definir las siguientes dos acciones para los atletas:
 - _entrenar_ una cantidad de días: el efecto es sumar a la masa muscular 1 kilo por cada 5 días de entrenamiento. P.ej. el efecto de entrenar 15 días, es sumar 3 kilos a la masa muscular.
 - _aprender una técnica_: el efecto es sumar uno a la cantidad de técnicas que conoce el atleta.
