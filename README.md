@@ -29,7 +29,7 @@ Se tiene que poder obtener, para cada planeta
 - la _delegación diplomática_, que está formada por los habitantes destacados.
 - el _valor inicial de defensa_, que es la cantidad de habitantes que tienen, al menos, 30 unidades de potencia.
 - si _es culto_: la condición es que haya al menos dos museos, y que todos los habitantes tengan al menos 10 unidades de inteligencia.
-- la _potencia real_: es la suma de la potencia de todos los habitantes. 
+- la _potencia real_: es la suma de la potencia de todos los habitantes.
 
 
 ## Test sobre el escenario básico
@@ -45,7 +45,7 @@ Considerar estas seis personas:
 Verificar que tienen los valores indicados en la tabla que sigue
 
 | persona | Potencia | Inteligencia | Es destacada |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | Julieta | 20 | 8 | no |
 | Ana | 28 | 12 | sí |
 | Rosa | 52 | 8 | sí |
@@ -74,7 +74,7 @@ Agregar las siguientes consultas para un planeta:
 - _potencia aparente_: es la potencia del habitante más potente, multiplicada por la cantidad de habitantes del planeta. P.ej. si un planeta tiene 4 habitantes con potencia 20, 28, 35, y 40, entonces la potencia aparente es 40 * 4 = 160. En el mismo caso, la potencia real es 123.
 - si _necesita reforzarse_: la condición es que la potencia aparente sea el doble de la real o más.
 
-Y la siguiente acción: _recibir tributos_. Cuando ocurre esto, cada habitante ofrece su tributo **al planeta**. Para un docente, el tributo es fundar un museo. Para un atleta, es construir 2 kilómetros de murallas. Las personas genéricas no tienen nada que ofrecer; cuando se les pide que ofrezcan su tributo a un planeta, no hace nada. 
+Y la siguiente acción: _recibir tributos_. Cuando ocurre esto, cada habitante ofrece su tributo **al planeta**. Para un docente, el tributo es fundar un museo. Para un atleta, es construir 2 kilómetros de murallas. Las personas genéricas no tienen nada que ofrecer; cuando se les pide que ofrezcan su tributo a un planeta, no hace nada.
 
 
 ## Valor de cada persona
@@ -84,7 +84,7 @@ Se debe poder consultar, para un planeta, la colección de _habitantes valiosos_
 
 ## Apaciguar a otro planeta
 Agregar para un planeta, la acción de _apaciguar_ a otro planeta.
-Cuando se le pide a un planeta X que apacigüe a otro planeta Y, lo que debe ocurrir es que cada habitante vaioso de X ofrezca su tributo a Y.   
+Cuando se le pide a un planeta X que apacigüe a otro planeta Y, lo que debe ocurrir es que cada habitante valioso de X ofrezca su tributo a Y.   
 P.ej. si tenemos dos planetas, Tritón y Paleas, y se le pide a Tritón que apacigüe a Paleas, el efecto debe ser que todos los habitantes valiosos de Tritón ofrezcan su tributo a Paleas.
 
 
@@ -94,11 +94,10 @@ La _potencia_ de un soldado es la suma del valor común para todas las personas,
 El _tributo_ que un soldado ofrece a una ciudad es construir 5 kilómetros de murallas.
 
 Se deben considerar estos dos tipos de armas:
-- **Pistolete**: de cada pistolete se sabe su largo en centímetros. 
+- **Pistolete**: de cada pistolete se sabe su largo en centímetros.
 La potencia que le otorga a un soldado se obtiene así: si el soldado tiene más de 30 años, entonces es el triple del largo; si no, el doble.  
 P.ej. un pistolete de 8 cm le otorga 24 unidades de potencia a un soldado de 50 años, pero solamente 16 unidades a un soldado de 24 años.
 
 - **Espadón**: de cada espadón se sabe el peso en kilos.
 La potencia que le otorga a un soldado se obtiene así: si el soldado tiene menos de 40 años, entonces es la mitad de su peso; si no, es de 6 unidades independientemente del peso.  
 P.ej. un espadón de 20 kilos le otorga 10 unidades de potencia a un soldado de 24 años, pero solamente 6 unidades a un soldado de 50 años.
-  
