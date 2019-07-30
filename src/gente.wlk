@@ -24,6 +24,7 @@ class Docente inherits Persona {
 	override method inteligencia() { return super() + cantidadDeCursosQueDio * 2 }
 	override method esDestacada() { return cantidadDeCursosQueDio > 3 }
 	override method contribuir(ciudad) { ciudad.fundarMuseo() }
+	override method valor() { return super() + 5 }
 }
 
 class Soldado inherits Persona {
