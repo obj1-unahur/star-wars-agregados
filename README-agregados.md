@@ -61,10 +61,12 @@ La _potencia_ de un agricultor es de 5 puntos.
 
 El _tributo_ de un agricultor para un planeta, es ... no hacer nada.
 
-Un agricultor _es destacado_ si cumple la condición común a todas las personas, o bien sabe sobre riego.
+Un agricultor _es destacado_ si cumple la condición común a todas las personas, o bien sabe sobre riego y tiene 5 o más años de experiencia.
 
 Debe contemplarse la acción de _acumular experiencia_, indicando la cantidad de años: esta cantidad debe sumarse a los años de experiencia del agricultor.
 
+**OJO**  
+Ni para la inteligencia ni para la potencia debe sumarse el valor común para todas las personas.
 
 ## Habitantes útiles
 
@@ -76,4 +78,36 @@ Decimos que una persona _es útil_ para un planeta. Las condiciones son:
 - agricultor: siempre son útiles.
 
 Agregar la posibilidad de consultarle a un planeta los _habitantes útiles_, que es la colección de aquellos entre sus habitantes que son útiles para ese mismo planeta.
+
+
+## Test sobre agricultores
+Crear a Irma, una agricultora de 28 años, con 3 años de experiencia y que no sabe sobre riego.
+Verificar que la inteligencia de Irma es 3, la potencia es 5, y que no es destacada.
+
+Después, hacer que Irma sepa sobre riego.
+Verificar que su inteligencia subió a 6, y que sigue sin ser destacada.
+
+Finalmente, hacer que Irma acumule 4 años de experiencia.
+Verificar que su inteligencia subió a 14, que ahora sí es destacada, y que su potencia sigue en 5.
+
+
+## Test sobre técnicos
+Considerar los siguientes materiales:
+- `man1`: manual sobre motores, que es útil para la defensa.
+- `man2`: manual sobre electrónica, que es útil para la defensa.
+- `man3`: manual sobre jardinería, que no es útil para la defensa.
+- `man4`: manual sobre electrónica, este no es útil para la defensa.
+- `nove1`: novela que aporta 3 puntos de inteligencia.
+- `nove2`: novela que aporta 12 puntos de inteligencia.
+
+Crear a Nuria y Silvia, dos técnicas. Nuria tiene 25 años y maneja man1, man2, man4 y nove1; Silvia tiene 43 años y maneja man3 y nove2.
+Crear al planeta Tritón.
+Hacer que Nuria y Silvia le ofrezcan su tributo a Tritón.
+
+Después de todo esto, verificar que:
+- la inteligencia de Nuria es 30, la de Silvia es 25.
+- la potencia de Nuria es 30, la de Silvia es 20.
+- Nuria sabe de motores y electrónica, no de jardinería. Silvia al revés: sabe de jardinería, pero no sabe ni de motores ni de electrónica. Ambas saben de literatura.
+- el material menos útil de Nuria es nove1, el de Silvia es man3.
+- Tritón tiene 2 edificios y ningún museo.
 
