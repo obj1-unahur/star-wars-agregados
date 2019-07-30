@@ -1,103 +1,113 @@
-# Star Wars
+# Star Wars - agregados
 
-## Modelo básico de personas y planetas.
+## Galaxia
 
-Nos piden armar parte del modelo de un juego con temática de Star Wars, que incluye a los planetas y a sus habitantes.
-
-De cada **persona** se registra su _edad_, o sea cuántos años tiene. Deben poder obtenerse: la _potencia_, la _inteligencia_ y si es o no _destacado_ de cada personas. Potencia e inteligencia son dos valores numéricos.
-En principio, corresponden estas definiciones:
-- la _inteligencia_ es de 12 para las personas de entre 20 y los 40 años, y de 8 para las otras.
-- la _potencia_ es de 20 para todas las personas.
-- una persona _es destacada_ si tiene, exactamente, 25 ó 35 años. O sea, si una persona tiene 25 años es destacada, si tiene 35 años es destacada, si tiene cualquier otra edad no es destacada.
-
-Además de estas definiciones que sirven para la generalidad de las personas, se definen algunos tipos de personas con características especiales. En principio vamos a contemplar a los atletas y los docentes.
-
-De cada **atleta** se mantienen la masa muscular (que comienza en 4 kilos) y la cantidad de técnicas que conoce (que comienza en 2).  
-La _potencia_ de un atleta es la suma del valor común para todas las personas, con la multiplicación entre masa muscular y cantidad de técnicas que conoce.  
-Un atleta _es destacado_ si cumple la condición común para todas las personas, o bien, conoce más de 5 técnicas.  
-Definir las siguientes dos acciones para los atletas:
-- _entrenar_ una cantidad de días: el efecto es sumar a la masa muscular 1 kilo por cada 5 días de entrenamiento. P.ej. el efecto de entrenar 15 días, es sumar 3 kilos a la masa muscular.
-- _aprender una técnica_: el efecto es sumar uno a la cantidad de técnicas que conoce el atleta.
-
-De cada **docente** se conoce la cantidad de cursos que dio, que arranca en 0.  
-La _inteligencia_ de un docente es la suma del valor común para todas las personas, con el doble de la cantidad de cursos que dio.  
-Un docente _es destacado_ si dio más de 3 cursos.  
-**¡Atención!** la condición general para considerar a una persona como destacada **no** corre para los docentes, o sea, un docente que haya dado 3 o menos cursos nunca es destacado, aunque tenga p.ej. 25 años. <br/><br/>
-
-De cada **planeta** se conocen los habitantes, que son personas. También la cantidad de museos que hay en el planeta.  
-Se tiene que poder obtener, para cada planeta
-- la _delegación diplomática_, que está formada por los habitantes destacados.
-- el _valor inicial de defensa_, que es la cantidad de habitantes que tienen, al menos, 30 unidades de potencia.
-- si _es culto_: la condición es que haya al menos dos museos, y que todos los habitantes tengan al menos 10 unidades de inteligencia.
-- la _potencia real_: es la suma de la potencia de todos los habitantes.
+Agregar un objeto que represente a la galaxia. De este objeto nos va a interesar únicamente el _nivel básico de energía_, un valor numérico que arranca de 3.
 
 
-## Test sobre el escenario básico
+## Agregados al planeta
 
-Considerar estas seis personas:
-- Julieta, una persona genérica de 42 años.
-- Ana, una atleta de 25 años.
-- Rosa, una atleta de 45 años que conoce 8 técnicas.
-- Perla, una atleta de 28 años que conoce 4 técnicas, y de masa muscular 6.
-- Mónica, una docente de 45 años que dio 6 cursos.
-- Luisa, una docente de 35 años que dio un curso.
+Se agrega para cada planeta, la _cantidad de edificios_ que se han construido, valor que arranca en 0.
 
-Verificar que tienen los valores indicados en la tabla que sigue
-
-| persona | Potencia | Inteligencia | Es destacada |
-| --- | --- | --- | --- |
-| Julieta | 20 | 8 | no |
-| Ana | 28 | 12 | sí |
-| Rosa | 52 | 8 | sí |
-| Perla | 44 | 12 | no |
-| Mónica | 20 | 20 | sí |
-| Luisa | 20 | 14 | no |
-
-Considerar el planeta Tritón, que tiene a estas seis personas como habitantes. Verificar que:
-- la delegación diplomática está formada por Ana, Rosa y Mónica
-- el valor inicial de defensa es 2
-- no es un planeta culto
-- la potencia real es 184  
-
-Sugerencia: definir a las personas como un Set (o sea `#{...}`) y no como un List (o sea, `[...]`). Así se va a simplificar el chequeo de la delegación diplomática. <br/><br/>
-
-Finalmente, en un test aparte, hacer que Perla entrene 15 días y aprenda una técnica. Después de eso, la potencia tiene que ser 65, y todavía no tiene que ser destacada. **Después** hacer que aprenda una técnica más. Después de aprender esta segunda técnica adicional, Perla tiene que ser destacada.
+Se pide agregar las siguientes consultas sobre un planeta:
+- _indice de construcción_ : es el resultado de sumar la cantidad de kilómetros de murallas, más la cantidad de museos multiplicada por 30, más la cantidad de edificios construidos multiplicada por 10.
+- _es copado_: se verifica si el planeta es culto y además tiene más de 4 habitantes.
+- _está bien defendido_: se verifica si la suma de su nivel inicial de defensa más el nivel básico de energía de la galaxia es de 8 o más.
 
 
-## Más sobre el planeta
+## Publicaciones
 
-Agregar, para cada planeta, la longitud total de sus murallas, que está medida en kilómetros. Agregar también dos acciones
-- _construir murallas_: suma una cantidad que se indica a la longitud de las murallas.
-- _fundar un museo_: suma uno a la cantidad de museos de la ciudad.
+Agregar al modelo las **publicaciones**, que serán usadas más adelante. De cada publicación debe ser posible consultar:
+- su _tema_ que es un String, p.ej. "Motores".
+- la cantidad de _inteligencia_ que aporta a una persona.
+- si _es útil para la defensa_ o no.
+- el _valor global_ de la publicación.
 
-Agregar las siguientes consultas para un planeta:
-- _potencia aparente_: es la potencia del habitante más potente, multiplicada por la cantidad de habitantes del planeta. P.ej. si un planeta tiene 4 habitantes con potencia 20, 28, 35, y 40, entonces la potencia aparente es 40 * 4 = 160. En el mismo caso, la potencia real es 123.
-- si _necesita reforzarse_: la condición es que la potencia aparente sea el doble de la real o más.
+Entre las publicaciones debemos contemplar los **manuales** y las **novelas**.
 
-Y la siguiente acción: _recibir tributos_. Cuando ocurre esto, cada habitante ofrece su tributo **al planeta**. Para un docente, el tributo es fundar un museo. Para un atleta, es construir 2 kilómetros de murallas. Las personas genéricas no tienen nada que ofrecer; cuando se les pide que ofrezcan su tributo a un planeta, no hace nada.
+Repecto de los manuales: el tema se establece para cada uno, aportan 5 puntos de inteligencia, se especifica para cada uno si es o no útil para la defensa. El valor global es 10 si es útil para la defensa, 4 en caso contrario.
 
-
-## Valor de cada persona
-Agregar la capacidad de preguntarle a cualquier persona su _valor_, que es la suma de potencia más inteligencia. Para los docentes, se suman 5 unidades adicionales.  
-Se debe poder consultar, para un planeta, la colección de _habitantes valiosos_, que son aquellos cuyo valor es de 40 o más.
+Para las novelas: el tema es fijo "Literatura", para cada uno se establece cuánta nteligencia aporta, no son útiles para la defensa. El valor global es el doble de la cantidad de inteligencia que aporta.
 
 
-## Apaciguar a otro planeta
-Agregar para un planeta, la acción de _apaciguar_ a otro planeta.
-Cuando se le pide a un planeta X que apacigüe a otro planeta Y, lo que debe ocurrir es que cada habitante valioso de X ofrezca su tributo a Y.   
-P.ej. si tenemos dos planetas, Tritón y Paleas, y se le pide a Tritón que apacigüe a Paleas, el efecto debe ser que todos los habitantes valiosos de Tritón ofrezcan su tributo a Paleas.
+## Técnicos
+
+Agregar un nuevo tipo específico de personas, los **técnicos**. 
+Para cada técnico, se conocen las _publicaciones_ que maneja. 
+
+La _inteligencia_ de un técnico se obtiene sumando, al valor común para todas las personas, la suma del aporte de cada publicación que maneja.
+
+La _potencia_ de un técnico se obtiene sumando, al valor común para todas las personas, la cantidad de publicaciones que maneja que son útiles para la defensa.
+
+El _tributo_ de un técnico para un planeta, consiste en construir un edificio en el mismo.
+
+Un técnico _es destacado_ si además de cumplirse la condición común a todas las personas, maneja tres o más publicaciones.
+
+También debe ser posible resolver las siguientes consultas para un técnico:
+- si _sabe de un tema_: la condición es que tenga al menos una publicación de ese tema.
+- el _material sobre un tema_, que es la colección de las publicaciones que maneja sobre ese tema.
+- el _material menos útil_, que es el que le aporta menos inteligencia.
+
+Finalmente, se tiene que permitir que un técnico A le _pase material_ a otro B: la acción consiste en que A le done a B el material menos útil entre los que maneja. Este material no debe estar más entre los que maneja A, y sí debe estar entre los que maneja B.
 
 
-## Soldados
-Agregar un nuevo tipo específico de personas, los **soldados**. Cada soldado tiene una colección de armas.
-La _potencia_ de un soldado es la suma del valor común para todas las personas, con la suma de la potencia que cada arma le otorga **a ese soldado**.
-El _tributo_ que un soldado ofrece a una ciudad es construir 5 kilómetros de murallas.
+## Agricultores
 
-Se deben considerar estos dos tipos de armas:
-- **Pistolete**: de cada pistolete se sabe su largo en centímetros.
-La potencia que le otorga a un soldado se obtiene así: si el soldado tiene más de 30 años, entonces es el triple del largo; si no, el doble.  
-P.ej. un pistolete de 8 cm le otorga 24 unidades de potencia a un soldado de 50 años, pero solamente 16 unidades a un soldado de 24 años.
+Agregar un nuevo tipo específico de personas, los **agricultores**.  Para cada uno se sabe si _sabe sobre riego_ o no, y los _años de experiencia_.
 
-- **Espadón**: de cada espadón se sabe el peso en kilos.
-La potencia que le otorga a un soldado se obtiene así: si el soldado tiene menos de 40 años, entonces es la mitad de su peso; si no, es de 6 unidades independientemente del peso.  
-P.ej. un espadón de 20 kilos le otorga 10 unidades de potencia a un soldado de 24 años, pero solamente 6 unidades a un soldado de 50 años.
+La _inteligencia_ de un agricultor se define como sus años de experiencia, excepto si sabe sobre riego, en cuyo caso es el doble de ese valor.
+
+La _potencia_ de un agricultor es de 5 puntos.
+
+El _tributo_ de un agricultor para un planeta, es ... no hacer nada.
+
+Un agricultor _es destacado_ si cumple la condición común a todas las personas, o bien sabe sobre riego y tiene 5 o más años de experiencia.
+
+Debe contemplarse la acción de _acumular experiencia_, indicando la cantidad de años: esta cantidad debe sumarse a los años de experiencia del agricultor.
+
+**OJO**  
+Ni para la inteligencia ni para la potencia debe sumarse el valor común para todas las personas.
+
+## Habitantes útiles
+
+Decimos que una persona _es útil_ para un planeta. Las condiciones son:
+- atletas: si el planeta necesita reforzarse.
+- docentes: si el planeta no es culto.
+- soldados: si la potencia real es menor a 40.
+- técnicos: si el planeta tiene 3 o más habitantes.
+- agricultor: siempre son útiles.
+
+Agregar la posibilidad de consultarle a un planeta los _habitantes útiles_, que es la colección de aquellos entre sus habitantes que son útiles para ese mismo planeta.
+
+
+## Test sobre agricultores
+Crear a Irma, una agricultora de 28 años, con 3 años de experiencia y que no sabe sobre riego.
+Verificar que la inteligencia de Irma es 3, la potencia es 5, y que no es destacada.
+
+Después, hacer que Irma sepa sobre riego.
+Verificar que su inteligencia subió a 6, y que sigue sin ser destacada.
+
+Finalmente, hacer que Irma acumule 4 años de experiencia.
+Verificar que su inteligencia subió a 14, que ahora sí es destacada, y que su potencia sigue en 5.
+
+
+## Test sobre técnicos
+Considerar los siguientes materiales:
+- `man1`: manual sobre motores, que es útil para la defensa.
+- `man2`: manual sobre electrónica, que es útil para la defensa.
+- `man3`: manual sobre jardinería, que no es útil para la defensa.
+- `man4`: manual sobre electrónica, este no es útil para la defensa.
+- `nove1`: novela que aporta 3 puntos de inteligencia.
+- `nove2`: novela que aporta 12 puntos de inteligencia.
+
+Crear a Nuria y Silvia, dos técnicas. Nuria tiene 25 años y maneja man1, man2, man4 y nove1; Silvia tiene 43 años y maneja man3 y nove2.
+Crear al planeta Tritón.
+Hacer que Nuria y Silvia le ofrezcan su tributo a Tritón.
+
+Después de todo esto, verificar que:
+- la inteligencia de Nuria es 30, la de Silvia es 25.
+- la potencia de Nuria es 30, la de Silvia es 20.
+- Nuria sabe de motores y electrónica, no de jardinería. Silvia al revés: sabe de jardinería, pero no sabe ni de motores ni de electrónica. Ambas saben de literatura.
+- el material menos útil de Nuria es nove1, el de Silvia es man3.
+- Tritón tiene 2 edificios y ningún museo.
+
